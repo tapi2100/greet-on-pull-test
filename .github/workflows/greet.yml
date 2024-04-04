@@ -1,0 +1,15 @@
+name: Lab 3 Greet user when opening the first pull request
+
+on:
+  pull_request:
+    types: [opened]
+	
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet user on first PR
+        uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          pr-message: "Thanks for the first Pull Request"
